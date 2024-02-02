@@ -161,3 +161,76 @@ Her proje ve uygulama farklıdır, bu nedenle CQRS kullanımının avantajları 
 - Software Architect’s Handbook — Joseph Ingeno
 - Event Sourcing — Martin Fowler
 - Code with Shadman — CQRS
+
+
+
+=================
+
+# Event Sourcing(Olay Tabanlı Mimari)
+Event sourcing, uygulamanin gecmisinde time travel yapabilmemizi saglayan bir mimari desenidir. Uygulamanin mevcut durumunu kayit altinda tutmak yerine, onu bu duruma getiren olay akisini kaydetmeye dayanan bir yazilim mimarisi konseptidir.
+Event Sourcing, uygulamanın mevcut durumunu kayıt altında tutmak yerine, onu bu duruma getiren olay akışını kaydetmeye dayanan bir yazılım mimarisi konseptidir. Böylece nesnenin herhangi bir T anındaki bilgisine erişim sağlanabilir.
+
+---
+
+## Temel Kavramlar
+
+## Event Kavramı
+
+Event, bir sistemin state'inde değişiklik meydana getiren herhangi bir önemli olaydır ve bu işlemle ilgili gereken tüm veriyi içeren kayıtlardır. Değiştirilemezdir(immutable) ve tarihsel sırada saklanırlar. Örneğin, bir müşterinin hesap bilgilerinin güncellenmesi, bir ürünün stok miktarının azalması gibi.
+
+## State Kavramı
+
+State, bir sistemin mevcut durumunu ifade eder.
+
+## Aggregate Kavramı
+
+Aggregate, bir veriye ait olan ve birbiriyle ilişkisel olayların meydana geldiği bütündür. Örneğin, bir siparişin içindeki ürünler ve müşteri bilgileri bir Aggregate olabilir.
+
+
+
+
+Event Sourcing, uygulamanın durumunu her durum değişikliğini temsil eden event aracılığıyla kaydeden bir mimari desen iken, Event-Driven Architecture ise bileşenler arasında event'lerin yayınlanması ve dinlenmesine dayanan bir iletişim prensibidir.
+
+
+---
+
+## Event Sourcing'in avantajları:
+
+1. **Geçmişi İzleme ve Denetleme:** Event Sourcing, uygulamanın durumunu her bir olayı kaydederek takip etmesini sağlar, bu da uygulamanın geçmiş durumlarına gitme ve durumu geri alma yeteneği kazandırır.
+
+2. **Hata Ayıklama Kolaylığı:** Olayların sırasını ve içeriğini inceleyerek hataların kaynağını daha hızlı tespit etme olanağı sunar.
+
+3. **Paralel İşleme Yeteneği:** Her bir olayın bağımsız olduğu bir yapı sağlayarak uygulamanın paralel olarak ölçeklenmesine olanak tanır.
+
+4. **Durum Geri Yükleme Yeteneği:** Olayların tüm geçmişini saklayarak, uygulamanın herhangi bir anındaki durumu geri yükleme yeteneği sağlar.
+
+5. **İş Zekası ve Raporlama:** Event Sourcing, iş zekası ve raporlama için zengin ve detaylı veri sağlar çünkü her durum değişikliği bir olay olarak kaydedilir.
+
+6. **İleriye Dönük Uyumluluk:** Yeni durum değişiklikleri veya özellik eklemeleri uygulandığında, bu değişiklikler geriye doğru meydana gelen olayları etkilemez, bu da ileriye dönük uyumluluk sağlar.
+
+---
+
+## Event Sourcing'in dezavantajları:
+
+1. **Karmaşıklık:** Event Sourcing uygulamak, geleneksel veritabanı yaklaşımlarına göre daha karmaşıktır. Olayların yönetimi, sıralanması ve işlenmesi gereken ekstra karmaşıklık getirebilir.
+
+2. **Öğrenme Eğrisi:** Event Sourcing'i anlamak ve uygulamak belirli bir öğrenme eğrisi gerektirir. Geliştiricilerin bu konuda deneyimsiz olması, başlangıçta sorunlara neden olabilir.
+
+3. **Performans:** Hafızada (bellekte) tüm olayların saklanması, büyük veri setleri ile çalışan uygulamalarda performans sorunlarına yol açabilir. Bu durum özellikle veri bütünlüğü ve tutarlılık sağlama amacıyla kullanılan karmaşık işlemlerde belirginleşebilir.
+
+4. **Veritabanı Boyutu:** Event Sourcing, zamanla birikmiş olaylar nedeniyle veritabanı boyutunu artırabilir. Bu durum, veritabanının bakımı ve performansı üzerinde etkiler yaratabilir.
+
+5. **Analitik Zorluklar:** Geleneksel veritabanı yapılarına göre, event sourcing verileri üzerinde analiz yapmak bazı zorlukları beraberinde getirebilir.
+
+6. **Sistem Yeniden İnşası:** Sistemin durumunu tam olarak anlamak ve yeniden oluşturmak için tüm olayları işlemek gerekebilir. Bu, büyük veri setlerinde zaman alabilir ve sistem yeniden inşası sürecini uzatabilir.
+
+---
+
+## Event Sourcing'in Kullanılabileceği Senaryolar
+
+1. **Bankacılık ve Finansal İşlemler:** Banka hesapları, kredi kartı işlemleri gibi finansal sistemlerde Event Sourcing, her bir işlemi bir olay olarak kaydederek geçmişe dönük izlenebilirlik sağlar. Ayrıca hataların geri alınması ve müşteri hesap durumlarının takibi gibi işlemlerde kullanışlıdır.
+
+2. **E-Ticaret Sistemleri:** Müşteri siparişleri, envanter değişiklikleri, fiyat güncellemeleri gibi olayları kaydederek e-ticaret sistemlerinde izlenebilirlik ve geri alma işlemlerini kolaylaştırabilir.
+
+3. **Lojistik ve Tedarik Zinciri Yönetimi:** Ürünlerin taşıma, depolama, sevkiyat gibi süreçlerinde Event Sourcing, her bir lojistik olayı kaydederek tedarik zinciri üzerinde daha iyi bir izlenebilirlik sağlayabilir.
+
