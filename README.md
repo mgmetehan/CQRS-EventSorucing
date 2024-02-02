@@ -148,3 +148,16 @@ Her proje ve uygulama farklıdır, bu nedenle CQRS kullanımının avantajları 
 
 4. **Twitter:**
    - Twitter, milyonlarca kullanıcı tarafından yapılan tweet sorgularını okuma modeli kullanarak gerçekleştirirken, yeni tweetlerin eklenmesi veya kullanıcı bilgilerinin güncellenmesi gibi işlemler yazma modeli üzerinden yönetilebilir.
+
+
+## Referanslar
+- CQRS Documents — Greg Young
+- Clarified CQRS — Udi Dahan
+- CQRS — Martin Fowler
+- CQS — Martin Fowler
+- Implementing DDD — Vaughn Vernon
+- Azure Cloud CQRS pattern
+- Command and Query Responsibility Segregation (CQRS) pattern — Microsoft Docs
+- Software Architect’s Handbook — Joseph Ingeno
+- Event Sourcing — Martin Fowler
+- Code with Shadman — CQRS
