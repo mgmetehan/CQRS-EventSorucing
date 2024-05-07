@@ -1,4 +1,10 @@
 # CQRS-EventSorucing
+
+# Sunum Pdf:
+[CQRS-EventSorucing-pdf](https://github.com/mgmetehan/CQRS-EventSorucing/blob/master/cqrs%26eventsourcing.pdf)
+
+    https://github.com/mgmetehan/CQRS-EventSorucing/blob/master/cqrs%26eventsourcing.pdf
+
 Acilis cumlesi CQRS icin
 CQRS: Günümüz sistemleri bir önceki sistemlere nazaran artık daha fazla trafik almaktadır. Bu tür durumlarda uygulamaların erişilebilir olmasını, yüksek trafik altında da makul yanıt verme sürelerini elde etmeyi ve performanslı bir ürün ortaya çıkartmayı amaç edinmekteyiz.
 
